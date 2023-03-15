@@ -1,0 +1,8 @@
+com\test\constant\Constant.class
+com\test\controller\TestRestController.class
+com\test\controller\TestRestController$Order.class
+com\test\kafka\ProducerMessage.class
+com\test\constant\Constant$KAFKA.class
+com\test\kafka\ConsumerMessage.class
+com\test\Application.class
+com\test\config\KafkaConfiguration.class

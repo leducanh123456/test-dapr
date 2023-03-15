@@ -1,0 +1,1 @@
+dapr run --app-id checkout --components-path ./component -- java -jar ./target/test-java-dapr-kafka-1.0-SNAPSHOT.jar
