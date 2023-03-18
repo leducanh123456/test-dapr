@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>test-java-dapr-kafka</artifactId>
+    <artifactId>java-dapr-kafka</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -49,7 +49,25 @@
             <version>1.6.0</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>docker-compose</id>
+            <properties>
+                <active.profile>docker-compose</active.profile>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>k8s</id>
+            <properties>
+                <active.profile>k8s</active.profile>
+            </properties>
+        </profile>
+    </profiles>
     <build>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
