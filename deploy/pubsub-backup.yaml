@@ -7,9 +7,9 @@ spec:
   version: v1
   metadata:
     - name: brokers # Required. Kafka broker connection setting
-      value: "kafka-service-1:9092"
+      value: "kafka-service-backup:9092"
     - name: consumerGroup # Optional. Used for input bindings.
-      value: "group1"
+      value: "group2"
     - name: clientID # Optional. Used as client tracing ID by Kafka brokers.
       value: "application-java"
     - name: authType # Required.

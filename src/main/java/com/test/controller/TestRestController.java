@@ -42,7 +42,7 @@ public class TestRestController {
                     PUBSUB_NAME,
                     TOPIC_NAME,
                     order).block();
-            TimeUnit.MILLISECONDS.sleep(1000);
+            TimeUnit.MILLISECONDS.sleep(100);
         }
     }
 
