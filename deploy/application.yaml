@@ -36,7 +36,7 @@ spec:
       hostname: application-service
       containers:
         - env:
-          image: anhld17/test-app:1.2
+          image: anhld17/app-dapr
           name: test-app
           ports:
             - containerPort: 8889
