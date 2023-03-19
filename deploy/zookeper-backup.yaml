@@ -7,12 +7,12 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - name: zookeeper-port-backup
+    - name: zookeeper-port
       port: 2181
       nodePort: 30181
       targetPort: 2181
   selector:
-    app: zookeeper--backup
+    app: zookeeper-backup
 ---
 apiVersion: apps/v1
 kind: Deployment
