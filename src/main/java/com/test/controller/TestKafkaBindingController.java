@@ -9,17 +9,15 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
-import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @RestController
-public class TestRestController {
+public class TestKafkaBindingController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestKafkaBindingController.class);
     @Autowired
     private ProducerMessage producerMessage;
 

@@ -50,3 +50,7 @@ services:
         delay: 5s
         max_attempts: 5
         window: 120s
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
