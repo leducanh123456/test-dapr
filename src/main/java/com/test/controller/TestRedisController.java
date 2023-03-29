@@ -13,19 +13,19 @@ import java.util.Random;
 
 @RestController
 public class TestRedisController {
-    @Autowired
-    private RedisTemplate template;
+//    @Autowired
+//    private RedisTemplate template;
 
-    @GetMapping(value = "/redis-spring")
-    public String sendSMSToRedisSpring() {
-        System.out.println("----------------START SEND-----------");
-        int k = new Random().nextInt();
-        template.opsForValue().set("test" + k, "hello world");
-        System.out.println("----------------END SEND-------------");
-        // In ra màn hình Giá trị của key  trong Redis
-        System.out.println("Value of key : " + template.opsForValue().get("test" + k));
-        return "OK";
-    }
+//    @GetMapping(value = "/redis-spring")
+//    public String sendSMSToRedisSpring() {
+//        System.out.println("----------------START SEND-----------");
+//        int k = new Random().nextInt();
+//        template.opsForValue().set("test" + k, "hello world");
+//        System.out.println("----------------END SEND-------------");
+//        // In ra màn hình Giá trị của key  trong Redis
+//        System.out.println("Value of key : " + template.opsForValue().get("test" + k));
+//        return "OK";
+//    }
 
     @GetMapping(value = "/redis-dapr")
     public String sendSMSToRedisDapr() throws Exception {
