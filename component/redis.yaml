@@ -4,6 +4,7 @@ metadata:
   name: storeredis
 spec:
   type: state.redis # Sử dụng Redis làm state store
+  version: v1
   metadata:
     - name: redisHost
       value: localhost:6379 # Địa chỉ Redis
