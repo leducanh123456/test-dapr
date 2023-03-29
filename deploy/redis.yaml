@@ -22,15 +22,6 @@ spec:
           volumeMounts:
             - name: redis-data
               mountPath: /data
-          command:
-            - "redis-server"
-            - "/usr/local/etc/redis/redis.conf"
-            - "--save"
-            - ""
-            - "--appendonly"
-            - "no"
-            - "--protected-mode"
-            - "no"
           env:
             - name: REDIS_REPLICATION_MODE
               value: master
