@@ -2,8 +2,9 @@ com\test\constant\Constant.class
 com\test\Application.class
 com\test\controller\TestKafkaBindingController.class
 com\test\controller\TestRedisController.class
+com\test\controller\TestKafkaPubSubController.class
+com\test\dto\Order.class
 com\test\config\RedisConfig.class
-com\test\controller\TestKafkaBindingController$Order.class
 com\test\kafka\ProducerMessage.class
 com\test\constant\Constant$KAFKA.class
 com\test\kafka\ConsumerMessage.class

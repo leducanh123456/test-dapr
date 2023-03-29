@@ -38,7 +38,7 @@ spec:
         - env:
             - name: SPRING_PROFILES_ACTIVE
               value: k8s
-          image: anhld17/app-dapr:1.0
+          image: anhld17/app-dapr:1.1
           name: test-app
           ports:
             - containerPort: 8889
