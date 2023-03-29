@@ -1,7 +1,7 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: redisState
+  name: storeredis
 spec:
   type: state.redis # Sử dụng Redis làm state store
   metadata:
