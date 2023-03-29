@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class TestKafkaPubSubController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestKafkaBindingController.class);
+   // private static final Logger logger = LoggerFactory.getLogger(TestKafkaBindingController.class);
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -38,7 +38,7 @@ public class TestKafkaPubSubController {
         for (int i = 0; i <= 10; i++) {
             int orderId = i;
             Order order = new Order(orderId);
-            logger.info(objectMapper.writeValueAsString(order));
+            //logger.info(objectMapper.writeValueAsString(order));
             // Publish an event/message using Dapr PubSub
             client.publishEvent(PUBSUB_NAME, TOPIC_NAME, objectMapper.writeValueAsBytes(order)).block();
             TimeUnit.MILLISECONDS.sleep(100);

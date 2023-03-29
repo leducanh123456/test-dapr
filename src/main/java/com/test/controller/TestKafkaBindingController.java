@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 @RestController
 public class TestKafkaBindingController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestKafkaBindingController.class);
+    //private static final Logger logger = LoggerFactory.getLogger(TestKafkaBindingController.class);
     @Autowired
     private ProducerMessage producerMessage;
 
@@ -43,7 +43,7 @@ public class TestKafkaBindingController {
         for (int i = 0; i <= 10; i++) {
             int orderId = i;
             Order order = new Order(orderId);
-            logger.info(objectMapper.writeValueAsString(order));
+            //logger.info(objectMapper.writeValueAsString(order));
             // Publish an event/message using Dapr PubSub
             client.publishEvent(PUBSUB_NAME, TOPIC_NAME, objectMapper.writeValueAsBytes(order)).block();
             TimeUnit.MILLISECONDS.sleep(100);
@@ -62,7 +62,7 @@ public class TestKafkaBindingController {
             int orderId = random.nextInt(1000-1) + 1;
             Order order = new Order(orderId);
             //Using Dapr SDK to invoke output binding
-            logger.info(objectMapper.writeValueAsString(objectMapper.writeValueAsString(order)));
+            //logger.info(objectMapper.writeValueAsString(objectMapper.writeValueAsString(order)));
             client.invokeBinding(BINDING_NAME, BINDING_OPERATION, objectMapper.writeValueAsString(order)).block();
             k++;
         }

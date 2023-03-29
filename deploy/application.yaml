@@ -40,5 +40,6 @@ spec:
               value: k8s
           image: anhld17/app-dapr:1.2
           name: test-app
+          imagePullPolicy: Always
           ports:
             - containerPort: 8889
