@@ -7,6 +7,6 @@ spec:
   version: v1
   metadata:
     - name: redisHost
-      value: localhost:6379 # Địa chỉ Redis
+      value: redis:6379 # Địa chỉ Redis
     - name: enableTLS
       value: "false" # Sử dụng TLS hay không?

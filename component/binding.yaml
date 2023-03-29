@@ -8,7 +8,7 @@ spec:
   metadata:
     # Kafka broker connection setting
     - name: brokers
-      value: localhost:9092
+      value: kafka-service:9092
     # consumer configuration: topic and consumer group
     - name: topics
       value: sample
