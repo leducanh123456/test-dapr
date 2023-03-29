@@ -1,0 +1,11 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: redis-state
+spec:
+  type: state.redis # Sử dụng Redis làm state store
+  metadata:
+    - name: redisHost
+      value: localhost:6379 # Địa chỉ Redis
+    - name: enableTLS
+      value: "false" # Sử dụng TLS hay không?
