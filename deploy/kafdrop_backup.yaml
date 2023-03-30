@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafdrop
+  name: kafdrop-backup
 spec:
   selector:
     matchLabels:
-      app: kafdrop
+      app: kafdrop-backup
   replicas: 1
   template:
     metadata:
       labels:
-        app: kafdrop
+        app: kafdrop-backup
     spec:
       containers:
-        - name: kafdrop
+        - name: kafdrop-backup
           image: obsidiandynamics/kafdrop:latest
           ports:
             - containerPort: 9000
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kafdrop-service
+  name: kafdrop-service-backup
 spec:
   type: NodePort
   ports:
@@ -35,4 +35,4 @@ spec:
       targetPort: 9000
       nodePort: 30191
   selector:
-    app: kafdrop
+    app: kafdrop-backup
