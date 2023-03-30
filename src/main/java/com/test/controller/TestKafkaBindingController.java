@@ -40,7 +40,7 @@ public class TestKafkaBindingController {
         String PUBSUB_NAME = "orderpubsub";
         DaprClient client = new DaprClientBuilder().build();
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 1; i++) {
             int orderId = i;
             Order order = new Order(orderId);
             //logger.info(objectMapper.writeValueAsString(order));

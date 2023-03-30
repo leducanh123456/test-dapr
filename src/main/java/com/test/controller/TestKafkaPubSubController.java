@@ -35,11 +35,9 @@ public class TestKafkaPubSubController {
         String PUBSUB_NAME = "orderpubsub";
         DaprClient client = new DaprClientBuilder().build();
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 1; i++) {
             int orderId = i;
             Order order = new Order(orderId);
-            //logger.info(objectMapper.writeValueAsString(order));
-            // Publish an event/message using Dapr PubSub
             client.publishEvent(PUBSUB_NAME, TOPIC_NAME, objectMapper.writeValueAsBytes(order)).block();
             TimeUnit.MILLISECONDS.sleep(100);
 
