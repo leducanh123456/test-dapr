@@ -32,7 +32,7 @@ public class TestRedisController {
         DaprClient client = new DaprClientBuilder().build();
         int k = new Random().nextInt();
         StateOptions options = new StateOptions(StateOptions.Consistency.STRONG, StateOptions.Concurrency.LAST_WRITE);
-        client.saveState("redis-state", "test" + k, "etag","hello word", options).block();
+        client.saveState("storeredis", "test" + k, "etag","hello word", options).block();
         State<String> savedState = client.getState("redis-state", "test" + k, String.class).block();
         System.out.println("Retrieved value from state store: " + savedState.getValue());
         client.close();
