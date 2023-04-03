@@ -25,8 +25,6 @@ public class TestRedisController {
             int k = new Random().nextInt();
             StateOptions options = new StateOptions(StateOptions.Consistency.STRONG, StateOptions.Concurrency.LAST_WRITE);
             client.saveState("storeredis", "test" + m, "etag", "hello word", options).block();
-            State<String> savedState = client.getState("storeredis", "test" + k, String.class).block();
-            System.out.println("Retrieved value from state store: " + savedState.getValue());
             m++;
         }
         Long end = System.nanoTime();
