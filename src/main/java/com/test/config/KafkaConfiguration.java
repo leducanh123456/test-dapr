@@ -14,9 +14,9 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
 import java.util.HashMap;
 import java.util.Map;
-//@EnableKafka
-//@Configuration
-//@NoArgsConstructor
+@EnableKafka
+@Configuration
+@NoArgsConstructor
 public class KafkaConfiguration {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;

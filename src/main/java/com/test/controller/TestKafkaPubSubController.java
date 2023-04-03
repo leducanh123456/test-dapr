@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 public class TestKafkaPubSubController {
@@ -32,13 +31,13 @@ public class TestKafkaPubSubController {
         String TOPIC_NAME = "test-kafka";
         String PUBSUB_NAME = "orderpubsub";
         DaprClient client = new DaprClientBuilder().build();
-
-        for (int i = 0; i < 1; i++) {
+        Long start = System.nanoTime();
+        for (int i = 0; i < 100000; i++) {
             int orderId = i;
             Order order = new Order(orderId);
             client.publishEvent(PUBSUB_NAME, TOPIC_NAME, order).block();
-            TimeUnit.MILLISECONDS.sleep(100);
-
         }
+        Long end = System.nanoTime();
+        System.out.println("all time : " + (end - start));
     }
 }

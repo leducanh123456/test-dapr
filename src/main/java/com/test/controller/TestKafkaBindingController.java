@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 public class TestKafkaBindingController {
@@ -35,12 +34,32 @@ public class TestKafkaBindingController {
         String BINDING_OPERATION = "create";
         int k = 0;
         DaprClient client = new DaprClientBuilder().build();
-        while (k < 1) {
+        Long start = System.nanoTime();
+        while (k < 100000) {
             Random random = new Random();
             int orderId = random.nextInt(1000 - 1) + 1;
             Order order = new Order(orderId);
-            client.invokeBinding(BINDING_NAME, BINDING_OPERATION, order).block();
+            client.invokeBinding(BINDING_NAME, BINDING_OPERATION, objectMapper.writeValueAsString(order)).block();
             k++;
         }
+        Long end = System.nanoTime();
+        System.out.println("all time : " + (end - start));
+    }
+    @GetMapping(value = "/send-message-kafka")
+    public String sendSMSToKafkaTest() throws Exception {
+        System.out.println("----------------START SEND-----------");
+        int k = 0;
+        Long start = System.nanoTime();
+        while (k < 100000) {
+            Random random = new Random();
+            int orderId = random.nextInt(1000 - 1) + 1;
+            Order order = new Order(orderId);
+            producerMessage.sendMessage(objectMapper.writeValueAsString(order));
+            k++;
+        }
+        System.out.println("----------------END SEND-------------");
+        Long end = System.nanoTime();
+        System.out.println("all time : " + (end - start));
+        return "OK";
     }
 }
