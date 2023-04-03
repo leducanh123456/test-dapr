@@ -31,7 +31,7 @@ spec:
         dapr.io/enabled: "true"
         dapr.io/app-id: "application-java"
         dapr.io/app-port: "8889"
-        dapr.io/enable-api-logging: "true"
+        dapr.io/enable-api-logging: "false"
     spec:
       hostname: application-service
       containers:
